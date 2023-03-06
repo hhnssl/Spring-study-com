@@ -1,0 +1,11 @@
+package sample.spring.yse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+// Service는 Controller와 DAO를 연결하는 역할을 하고 있다.
+@Service
+public class BookServiceImpl {
+	@Autowired
+	BookDao bookDao;
+}

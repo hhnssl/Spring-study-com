@@ -1,0 +1,17 @@
+package sample.spring.yse;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class BookDao {
+	@Autowired
+	SqlSessionTemplate sqlSessionTemplate;
+//	SqlSessionTemplate: 마이바티스 <-> 스프링 연동 모듈 핵심 & SqlSession을 구현하고, SqlSession을 대체하는 역할
+	
+	public int insert(Map<String, Object> map) {
+		return this.sqlSessionTemplate.insert("book.insert", map);
+	}
+	
+}
