@@ -22,15 +22,11 @@ public class BookController {
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public ModelAndView createPost(@RequestParam Map<String, Object> map) {
-//		@RequestParam: HttpServletRequset와 같은 역할
-//		HttpServletRequest: 컨트롤러로 전달된 파라미터를 가져오는 역할 
-// 정리: @RequestParam은 jsp에서 보낸, request 값을 효율적으로 받기 위해 사용함!!
-		
 //		Model과 ModelAndView의 차이점: 모델은 [데이터]만 저장 & 모델앤뷰는 [데이터+이동하고자하는ViewPage]를 같이 저장
 		ModelAndView mav = new ModelAndView();
 
 		String bookId = this.bookService.create(map);
-
+		
 		if (bookId == null) {
 			mav.setViewName("redirect:/create");
 //			setViewName: 페이지 이동값 세팅
