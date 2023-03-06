@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="book">
+	<!-- Insert 문 -->
 	<insert id="insert" parameterType="hashMap"
 		useGeneratedKeys="true" keyProperty="book_id">  
     <![CDATA[
@@ -10,4 +11,21 @@
     (#{title}, #{category}, #{price})
     ]]>
 	</insert>
+
+
+	<!-- Select 문 -->
+	<select id="select_detail" parameterType="hashMap"
+		resultType="hashMap">
+    <![CDATA[
+        select
+        title,
+        category,
+        price,
+ insert_date
+        from
+        book
+        where
+        book_id = #{bookId}   
+    ]]>
+	</select>
 </mapper>

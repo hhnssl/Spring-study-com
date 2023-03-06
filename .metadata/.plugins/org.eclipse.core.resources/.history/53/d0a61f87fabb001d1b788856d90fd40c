@@ -19,9 +19,6 @@ public class BookDao {
 //	책 상세 메소드
 	public Map<String, Object> selectDetail(Map<String, Object> map) {
 		return this.sqlSessionTemplate.selectOne("book.select_detail", map);
-//		여기서 book.select_detail<- book 이 가리키는 게 어딜까? db의 테이블명??
-		
-//		SqlSessionTemplate의 selectOne 메소드: 데이터를 한개만 가져올 때 사용, 0개면 null 반환
 	}
 
 }
