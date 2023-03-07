@@ -64,22 +64,4 @@ public class BookController {
 		mav.setViewName("/book/update");
 		return mav;
 	}
-
-//	책 수정 기능 
-	@RequestMapping(value = "update", method = RequestMethod.POST)
-	public ModelAndView updatePost(@RequestParam Map<String, Object> map) {
-		ModelAndView mav = new ModelAndView();
-
-		boolean isUpdateSuccess = this.bookService.edit(map);
-
-		if (isUpdateSuccess) {
-			String bookId = map.get("bookId").toString();
-			mav.setViewName("redirect:/detail?bookId=" + bookId);
-
-		} else {
-//			갱신이 제대로 안됐을 경우, 갱신 화면 다시 보여주기?
-			mav = this.update(map);
-		}
-		return mav;
-	}
 }

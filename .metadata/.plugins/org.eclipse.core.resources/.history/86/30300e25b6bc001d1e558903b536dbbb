@@ -77,7 +77,6 @@ public class BookController {
 			mav.setViewName("redirect:/detail?bookId=" + bookId);
 
 		} else {
-//			갱신이 제대로 안됐을 경우, 갱신 화면 다시 보여주기?
 			mav = this.update(map);
 		}
 		return mav;
