@@ -30,7 +30,7 @@
 	    ]]>
 	</select>
 
-<!-- 기존 select_list에서 업데이트 -->
+
 	<select id="select_list" parameterType="hashMap"
 		resultType="hashMap">  
 		<![CDATA[  

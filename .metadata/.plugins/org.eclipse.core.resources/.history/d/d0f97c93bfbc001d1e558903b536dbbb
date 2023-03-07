@@ -30,7 +30,6 @@
 	    ]]>
 	</select>
 
-<!-- 기존 select_list에서 업데이트 -->
 	<select id="select_list" parameterType="hashMap"
 		resultType="hashMap">  
 		<![CDATA[  
@@ -42,14 +41,8 @@
 		insert_date  
 		from  
 		book  
-		where 1 = 1  
+		order by insert_date desc  
 		]]>
-		<if test="keyword != null and keyword != ''">
-			and (title like CONCAT('%',#{keyword},'%') or category
-			like
-			CONCAT('%',#{keyword},'%'))
-		</if>
-		order by insert_date desc
 	</select>
 
 	<!-- Update문 -->
