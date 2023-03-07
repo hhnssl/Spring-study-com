@@ -15,8 +15,5 @@ public interface BookService {
 
 // 책 정보 수정 시그
 	boolean edit(Map<String, Object> map);
-
-// 책 삭제 시그
-	boolean remove(Map<String, Object> map);
 	
 }

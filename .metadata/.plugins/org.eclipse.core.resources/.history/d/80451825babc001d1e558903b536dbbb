@@ -88,13 +88,11 @@ public class BookController {
 	public ModelAndView deletePost(@RequestParam Map<String, Object> map) {
 		ModelAndView mav = new ModelAndView();
 
-		boolean isDeleteSuccess = this.bookService.remove(map); // 삭제 성공 확인
+		boolean isDeleteSuccess = this.bookService.remove(map);
 
 		if (isDeleteSuccess) {
-			// 삭제가 성공하면 상세 페이지가 없으므로 목록으로 리다이렉트
 			mav.setViewName("redirect:/list");
 		} else {
-			// 삭제 실패하면 다시 상세 페이지로 이동
 			String bookId = map.get("bookId").toString();
 			mav.setViewName("redirect:/detail?bookId=" + bookId);
 		}
