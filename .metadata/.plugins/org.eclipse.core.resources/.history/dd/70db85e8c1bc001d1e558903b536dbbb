@@ -102,7 +102,7 @@ public class BookController {
 		return mav;
 	}
 
-//	 책 목록  & 검색
+//	 책 목록
 	@RequestMapping(value = "list")
 	public ModelAndView list(@RequestParam Map<String, Object> map) {
 
@@ -110,13 +110,6 @@ public class BookController {
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("data", list);// 데이터를 뷰에 전달할 수 있게 mav 객체에 넣기
-		
-//		파라미터가 있는지 검사
-		if (map.containsKey("keyword"))	{
-//			파라미터 있으면 뷰에 keyword 전달
-			mav.addObject("keyword", map.get("keyword"));
-		}
-		
 		mav.setViewName("/book/list"); // 뷰 리턴
 
 		return mav;

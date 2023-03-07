@@ -113,7 +113,6 @@ public class BookController {
 		
 //		파라미터가 있는지 검사
 		if (map.containsKey("keyword"))	{
-//			파라미터 있으면 뷰에 keyword 전달
 			mav.addObject("keyword", map.get("keyword"));
 		}
 		
@@ -121,4 +120,3 @@ public class BookController {
 
 		return mav;
 	}
-}
