@@ -29,6 +29,6 @@ public class BookDao {
 
 //	책 삭제 메소드
 	public int delete(Map<String, Object> map) {
-		return this.sqlSessionTemplate.delete("book.delete", map); // 반환값: 영향 받은 행수
+		return this.sqlSessionTemplate.delete("book.delete", map);
 	}
 }
