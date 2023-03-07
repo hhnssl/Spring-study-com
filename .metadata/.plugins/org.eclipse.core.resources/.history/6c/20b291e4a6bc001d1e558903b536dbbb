@@ -19,7 +19,7 @@ public class BookDao {
 //	책 상세 메소드
 	public Map<String, Object> selectDetail(Map<String, Object> map) {
 //		실제 쿼리문 실행
-		return this.sqlSessionTemplate.selectOne("book.select_detail", map); //(쿼리아이디, 조건)
+		return this.sqlSessionTemplate.selectOne("book.select_detail", map);
 	}
 
 

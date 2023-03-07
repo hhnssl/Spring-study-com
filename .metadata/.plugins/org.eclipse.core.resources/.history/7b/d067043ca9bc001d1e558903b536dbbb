@@ -37,31 +37,19 @@ public class BookController {
 		} else {
 			mav.setViewName("redirect:/detail?bookId=" + bookId);
 		}
-		return mav; // 여기서 리턴한 값은 어디로 가는 것인가
+		return mav;
 	}
 
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
 	public ModelAndView detail(@RequestParam Map<String, Object> map) {
 		Map<String, Object> detailMap = this.bookService.detail(map);
-		System.out.println("detailMap" + detailMap);
-		System.out.println(detailMap.getClass().getName());
+		System.out.println(detailMap);
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("data", detailMap);
 		String bookId = map.get("bookId").toString();
 		mav.addObject("bookId", bookId);
 		mav.setViewName("/book/detail");
-		return mav;
-	}
-
-//	책 수정 화면
-	@RequestMapping(value = "/update", method = RequestMethod.GET)
-	public ModelAndView update(@RequestParam Map<String, Object> map) {
-		Map<String, Object> detailMap = this.bookService.detail(map);
-
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("data", detailMap);
-		mav.setViewName("/book/update");
 		return mav;
 	}
 }

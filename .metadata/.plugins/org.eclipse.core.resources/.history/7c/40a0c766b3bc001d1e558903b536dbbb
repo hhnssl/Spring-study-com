@@ -61,7 +61,7 @@ public class BookController {
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("data", detailMap);
-		mav.setViewName("/book/update");
+		mav.setViewName("/book/updata");
 		return mav;
 	}
 }
