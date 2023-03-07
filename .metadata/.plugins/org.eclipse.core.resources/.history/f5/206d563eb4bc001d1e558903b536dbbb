@@ -4,29 +4,29 @@
 	<!-- Insert 문 -->
 	<insert id="insert" parameterType="hashMap"
 		useGeneratedKeys="true" keyProperty="book_id">  
-	    <![CDATA[
-	    insert into book
-	    (title, category, price) 
-	    values
-	    (#{title}, #{category}, #{price})
-	    ]]>
+    <![CDATA[
+    insert into book
+    (title, category, price) 
+    values
+    (#{title}, #{category}, #{price})
+    ]]>
 	</insert>
 
 
 	<!-- Select 문 -->
 	<select id="select_detail" parameterType="hashMap"
 		resultType="hashMap">
-	    <![CDATA[
-	        select
-	        title,
-	        category,
-	        price,
-	 insert_date
-	        from
-	        book
-	        where
-	        book_id = #{bookId}   
-	    ]]>
+    <![CDATA[
+        select
+        title,
+        category,
+        price,
+ insert_date
+        from
+        book
+        where
+        book_id = #{bookId}   
+    ]]>
 	</select>
 
 	<!-- Update문 -->

@@ -12,8 +12,5 @@ public interface BookService {
 	
 //	책 상세 서비스 인터페이스 메소드 시그니처
 	Map<String, Object> detail(Map<String, Object> map);
-
-// 책 정보 수정 시그
-	boolean edit(Map<String, Object> map);
 	
 }

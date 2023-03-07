@@ -36,8 +36,6 @@ public class BookServiceImpl implements BookService {
 	public boolean edit(Map<String, Object> map) {
 		int affectRowCount = this.bookDao.update(map);
 		return affectRowCount == 1;
-		
-		// 수정의 경우, 입력과는 달리 pk를 가져오는 절차가 필요없으므로 그저 1개의 행이 제대로 영향받았는지만 검사하는 것 so 반환타입=boolean
 	}
 
 }

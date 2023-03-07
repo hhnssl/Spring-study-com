@@ -24,6 +24,6 @@ public class BookDao {
 	}
 
 	public int update(Map<String, Object> map) {
-		return this.sqlSessionTemplate.update("book.update", map); // 반환값: 영향 받은 행수
+		return this.sqlSessionTemplate.update("book.update", map);
 	}
 }
