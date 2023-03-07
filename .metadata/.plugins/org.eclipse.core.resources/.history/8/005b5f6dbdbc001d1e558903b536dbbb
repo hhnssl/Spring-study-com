@@ -1,6 +1,5 @@
 package sample.spring.yse;
 
-import java.util.List;
 import java.util.Map;
 
 //	책 입력 기능 서비스 클래스 메소드 생성
@@ -20,7 +19,7 @@ public interface BookService {
 // 책 삭제 시그
 	boolean remove(Map<String, Object> map);
 
-// 책 목록 시그
+
 	List<Map<String, Object>> list(Map<String, Object> map);
 	
 }

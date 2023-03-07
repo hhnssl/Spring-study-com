@@ -34,8 +34,8 @@ public class BookDao {
 	}
 
 //	책 목록 메소드
-	public List<Map<String, Object>> selectList(Map<String, Object> map) {
-		return this.sqlSessionTemplate.selectList("book.select_list", map);
+	public List<Map<String, Object>> selectList(Map<String, Object> map) {  
+		//sqlSessionTemplate.selectList 메소드는 결과 집합 목록을 반환하므로, 결과 집합 타입인 Map<String, Object>의 목록 List 타입으로 읽어들일 수 있음.
 	}
-
-}
+		return this.sqlSessionTemplate.selectList("book.select_list", map);  
+		}

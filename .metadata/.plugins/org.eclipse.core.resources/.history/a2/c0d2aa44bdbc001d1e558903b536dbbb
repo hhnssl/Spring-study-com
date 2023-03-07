@@ -34,8 +34,6 @@ public class BookDao {
 	}
 
 //	책 목록 메소드
-	public List<Map<String, Object>> selectList(Map<String, Object> map) {
-		return this.sqlSessionTemplate.selectList("book.select_list", map);
-	}
-
-}
+	public List<Map<String, Object>> selectList(Map<String, Object> map) {  
+		return this.sqlSessionTemplate.selectList("book.select_list", map);  
+		}  

@@ -30,6 +30,21 @@
 	    ]]>
 	</select>
 
+	<select id="select_list" parameterType="hashMap"
+		resultType="hashMap">  
+		<![CDATA[  
+		select  
+		book_id,  
+		title,  
+		category,  
+		price,  
+		insert_date  
+		from  
+		book  
+		order by insert_date desc  
+		]]>
+	</select>
+
 	<!-- Update문 -->
 	<update id="update" parameterType="hashMap">  
 		<![CDATA[  
@@ -50,4 +65,6 @@
 		book_id = #{bookId}  
 		]]>
 	</delete>
+
+
 </mapper>

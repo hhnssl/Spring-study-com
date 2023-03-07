@@ -1,6 +1,5 @@
 package sample.spring.yse;
 
-import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -32,10 +31,4 @@ public class BookDao {
 	public int delete(Map<String, Object> map) {
 		return this.sqlSessionTemplate.delete("book.delete", map); // 반환값: 영향 받은 행수
 	}
-
-//	책 목록 메소드
-	public List<Map<String, Object>> selectList(Map<String, Object> map) {
-		return this.sqlSessionTemplate.selectList("book.select_list", map);
-	}
-
 }
