@@ -11,21 +11,21 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class BookController {
+//	(책 입력 기능) 서비스를 호출하기 위해 BookService 의존성을 주입한다.
+	@Autowired
+	BookService bookService;
+
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView create() {
 		return new ModelAndView("book/create");
 	}
 
-//	(책 입력 기능) 서비스를 호출하기 위해 BookService 의존성을 주입한다.
-	@Autowired
-	BookService bookService;
-
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public ModelAndView createPost(@RequestParam Map<String, Object> map) {
 //		@RequestParam: HttpServletRequset와 같은 역할
 //		HttpServletRequest: 컨트롤러로 전달된 파라미터를 가져오는 역할 
-// 정리: @RequestParam은 jsp에서 보낸, request 값을 효율적으로 받기 위해 사용함!!
-		
+// 정리: @RequestParam은 jsp에서 보낸, request 값을 효율적으로 받기 위해 사용함!! + 쿼리 스트링 파라미터를 읽을 수 있음
+
 //		Model과 ModelAndView의 차이점: 모델은 [데이터]만 저장 & 모델앤뷰는 [데이터+이동하고자하는ViewPage]를 같이 저장
 		ModelAndView mav = new ModelAndView();
 
@@ -37,8 +37,18 @@ public class BookController {
 		} else {
 			mav.setViewName("redirect:/detail?bookId=" + bookId);
 		}
-
 		return mav;
 	}
 
+	@RequestMapping(value = "/detail", method = RequestMethod.GET)
+	public ModelAndView detail(@RequestParam Map<String, Object> map) {
+		Map<String, Object> detailMap = this.bookService.detail(map);
+
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("data", detailMap);
+		String bookId = map.get("bookId").toString();
+		mav.addObject("bookId", bookId);
+		mav.setViewName("/book/detail");
+		return mav;
+	}
 }

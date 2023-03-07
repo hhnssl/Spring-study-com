@@ -5,7 +5,12 @@ import java.util.Map;
 //	책 입력 기능 서비스 클래스 메소드 생성
 public interface BookService {
 
-//	BookDao.insert 메소드를 실행시키는 (서비스) 메소드
+//	BookDao.insert 메소드를 실행시키는 (서비스) 메소드 시그니처
 //	서비스 메소드는 BookServiceImpl 클래스에 작성할 것
 	String create(Map<String, Object> map);
+
+	
+//	책 상세 서비스 인터페이스 메소드 시그니처
+	Map<String, Object> detail(Map<String, Object> map);
+	
 }

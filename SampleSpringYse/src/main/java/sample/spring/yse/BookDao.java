@@ -9,19 +9,18 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class BookDao {
 	@Autowired
-	SqlSessionTemplate sqlSessionTemplate;
-//	SqlSessionTemplate: 마이바티스 <-> 스프링 연동 모듈 핵심 & SqlSession을 구현하고, SqlSession을 대체하는 역할
+	SqlSessionTemplate sqlSessionTemplate; // MyBatis 쿼리문을 실행하는 역할
 
 	public int insert(Map<String, Object> map) {
-		return this.sqlSessionTemplate.insert("book.insert", map);
+		return this.sqlSessionTemplate.insert("book.insert", map); // book_SQL.xml에서 namespace=book, id=insert해서 book.insert
+		// MyBatis는 namespace+id 조합으로 쿼리를 찾아서 수행함.
 	}
 
 //	책 상세 메소드
 	public Map<String, Object> selectDetail(Map<String, Object> map) {
+//		실제 쿼리문 실행
 		return this.sqlSessionTemplate.selectOne("book.select_detail", map);
-//		여기서 book.select_detail<- book 이 가리키는 게 어딜까? db의 테이블명??
-		
-//		SqlSessionTemplate의 selectOne 메소드: 데이터를 한개만 가져올 때 사용, 0개면 null 반환
 	}
+
 
 }

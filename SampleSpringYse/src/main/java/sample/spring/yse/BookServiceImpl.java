@@ -5,7 +5,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-// Service는 Controller와 DAO를 연결하는 역할을 하고 있다.
+// Service는 Controller와 DAO를 연결하는 역할을 하고 있다. DAO를 호출한 결과를 바로 리턴하는 일만 함.
 @Service
 public class BookServiceImpl implements BookService {
 	@Autowired
@@ -18,11 +18,18 @@ public class BookServiceImpl implements BookService {
 	
 	@Override
 	public String create(Map<String, Object> map) {
+//		서비스가 DAO의 메소드를 호출!
 		int affectRowCount = this.bookDao.insert(map);
 		if(affectRowCount == 1) {
 			return map.get("book_id").toString();
 		}
 		return null;
+	}
+	
+	
+	@Override
+	public Map<String, Object> detail(Map<String, Object> map){
+		return this.bookDao.selectDetail(map);
 	}
 	
 	
