@@ -1,6 +1,5 @@
 package sample.spring.yse;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,19 +98,6 @@ public class BookController {
 			String bookId = map.get("bookId").toString();
 			mav.setViewName("redirect:/detail?bookId=" + bookId);
 		}
-		return mav;
-	}
-
-//	 책 목록
-	@RequestMapping(value = "list")
-	public ModelAndView list(@RequestParam Map<String, Object> map) {
-
-		List<Map<String, Object>> list = this.bookService.list(map);//	DB에서 책 목록을 가져옴
-
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("data", list);// 데이터를 뷰에 전달할 수 있게 mav 객체에 넣기
-		mav.setViewName("/book/list"); // 뷰 리턴
-
 		return mav;
 	}
 }
