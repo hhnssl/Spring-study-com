@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.buildship.ui.wizard.project.import">
-		<item key="project_location" value="C:\Users\hansol\Downloads\demo"/>
+		<item key="project_location" value="C:\Users\hansol\study\workspace_ecl_java8\demo2"/>
+		<item key="gradle_distribution" value="GRADLE_DISTRIBUTION(WRAPPER)"/>
 	</section>
 </section>
